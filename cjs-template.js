@@ -43,6 +43,20 @@ var Module = function () {
   MyClass.prototype = Object.create(ClassXY.prototype);
   MyClass.prototype.constructor = MyClass;  
 
+  /*
+    ### expose MyClass ctor 
+
+    ```
+    var MyClass = require('my-class.js');
+
+    var x = new MyClass();
+
+    x instanceof MyClass;         // false!
+
+    x instanceof MyClass.MyClass; // true
+    ```
+  */
+  Module.MyClass = MyClass;
 
 
   /*
@@ -81,20 +95,6 @@ Module.xyz = function () {
   ## static properties
 */
 
-/*
-  ### expose MyClass ctor 
-
-  ```
-  var MyClass = require('my-class.js');
-
-  var x = new MyClass();
-  
-  x instanceof MyClass;         // false!
-  
-  x instanceof MyClass.MyClass; // true
-  ```
-*/
-Module.MyClass = MyClass;
 
 /*
   ### expose dependency ClassXY
